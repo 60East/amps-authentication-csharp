@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" />
+  <Import Project="..\AMPSKerberos\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\AMPSKerberos\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2DF6FA92-7C4E-40B4-BC75-8842B843EFD5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AMPSKerberos.Tests</RootNamespace>
+    <AssemblyName>AMPSKerberos.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AMPS.Client, Version=99.9.9.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\gfs\sixty\amps-client-csharp\wip\AMPS.Client\bin\Debug\AMPS.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="NSspi, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSspi.0.2.1\lib\net40\NSspi.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition="Exists('$(NUNIT_DIR)')">$(NUNIT_DIR)\nunit.core.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\')">..\..\..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\nunit.core.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\')">..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\nunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition="Exists('$(NUNIT_DIR)')">$(NUNIT_DIR)\nunit.core.interfaces.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\')">..\..\..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\nunit.core.interfaces.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\')">..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\nunit.core.interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition="Exists('$(NUNIT_DIR)')">$(NUNIT_DIR)\..\framework\nunit.framework.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\..\..\..\gfs\oss\nunit\2.6.3\bin\framework\')">..\..\..\..\..\..\gfs\oss\nunit\2.6.3\bin\framework\nunit.framework.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\..\gfs\oss\nunit\2.6.3\bin\framework\')">..\..\..\..\gfs\oss\nunit\2.6.3\bin\framework\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.util, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition="Exists('$(NUNIT_DIR)')">$(NUNIT_DIR)\nunit.util.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\')">..\..\..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\nunit.util.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\')">..\..\..\..\gfs\oss\nunit\2.6.3\bin\lib\nunit.util.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AMPSKerberosAuthenticatorTest.cs" />
+    <Compile Include="AMPSKerberosUtilsTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AMPSKerberos.csproj">
+      <Project>{5cce054f-9789-48fd-9380-3cc6e2a5f10b}</Project>
+      <Name>AMPSKerberos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" />
+</Project>
