@@ -45,8 +45,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\gfs\sixty\amps-client-csharp\wip\AMPS.Client\bin\Debug\AMPS.Client.dll</HintPath>
     </Reference>
-    <Reference Include="NSspi, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NSspi.0.2.1\lib\net40\NSspi.dll</HintPath>
+    <Reference Include="NSspi">
+      <HintPath>..\..\..\..\..\oss\nsspi\0.2.1\lib\net40\NSspi.dll</HintPath>
     </Reference>
     <Reference Include="nunit.core, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -34,8 +34,10 @@
     <Reference Include="AMPS.Client">
       <HintPath>..\..\..\..\..\gfs\sixty\amps-client-csharp\wip\AMPS.Client\bin\Debug\AMPS.Client.dll</HintPath>
     </Reference>
-    <Reference Include="NSspi">
-      <HintPath>..\..\..\..\..\tmp\nsspi\NSspi\obj\Debug\NSspi.dll</HintPath>
+	<Reference Include="NSspi">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath Condition="Exists('$(NSSPI_DIR)')">$(NSSPI_DIR)\NSspi.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\..\oss\nsspi\0.2.1\lib\net40\')">..\..\..\..\oss\nsspi\0.2.1\lib\net40\NSspi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
