@@ -17,7 +17,7 @@ namespace AMPSKerberos.Tests
             string amps_host = Environment.GetEnvironmentVariable("AMPS_HOST");
             if (string.IsNullOrEmpty(amps_host))
             {
-                amps_host = "ip-172-31-45-58.us-west-2.compute.internal";
+                Assert.Ignore("Kerberos tests are being skipped. Set the AMPS_HOST environment variable to enable them.");
             }
 
             string amps_port = Environment.GetEnvironmentVariable("AMPS_PORT");
