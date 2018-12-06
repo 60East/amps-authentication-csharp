@@ -16,17 +16,13 @@ namespace AMPSKerberos
 
             ClientCurrentCredential clientCred = new ClientCurrentCredential("Kerberos");
             
-            //TODO: What flags should be specified?
             ctx = new ClientContext(
                 clientCred,
                 spn_,
                 ContextAttrib.MutualAuth |
-                ContextAttrib.InitIdentify |
-                ContextAttrib.Confidentiality |
                 ContextAttrib.ReplayDetect |
                 ContextAttrib.SequenceDetect |
-                ContextAttrib.Connection |
-                ContextAttrib.Delegate
+                ContextAttrib.Connection
             );
         }
 
