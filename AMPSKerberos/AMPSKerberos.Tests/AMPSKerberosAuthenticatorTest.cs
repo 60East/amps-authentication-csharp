@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using NUnit.Framework;
 using AMPS.Client;
 
@@ -56,6 +56,58 @@ namespace AMPSKerberos.Tests
                 client.connect(_uri);
                 client.logon(10000, authenticator);
                 client.publish("/topic", @"{ ""foo"" : ""bar"" }");
+            }
+        }
+
+        [TestCase]
+        public void TestMultipleAuthWithFailure()
+        {
+            AMPSKerberosAuthenticator authenticator = new AMPSKerberosAuthenticator(_spn);
+            bool error_thrown = false;
+            using (Client client = new Client("KerberosTestPublisher"))
+            {
+                for (int i = 0; i < 10; ++i)
+                {
+                    if (i % 2 == 0)
+                    {
+                        client.connect(_uri);
+                        client.logon(10000, authenticator);
+                        client.close();
+                    }
+                    else
+                    {
+                        try
+                        {
+                            client.connect(_uri);
+                            client.logon();
+                        }
+                        catch (AMPS.Client.Exceptions.AuthenticationException)
+                        {
+                            client.close();
+                            error_thrown = true;
+                        }
+                    }
+                }
+            }
+
+            Assert.IsTrue(error_thrown);
+        }
+
+        [TestCase]
+        public void TestMultipleAuth()
+        {
+            AMPSKerberosAuthenticator authenticator = new AMPSKerberosAuthenticator(_spn);
+
+            using (Client client = new Client("KerberosTestPublisher"))
+            {
+                for (int i = 0; i < 10; ++i)
+                {
+                    client.connect(_uri);
+                    client.logon(10000, authenticator);
+                    client.disconnect();
+                }
+
+                client.close();
             }
         }
 
