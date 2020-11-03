@@ -37,6 +37,6 @@ class KerberosAuthExample
 
 ## See Also
 
-[Kerberos Authentication Blog Article]()
+[Kerberos Authentication Blog Article](https://www.crankuptheamps.com/blog/posts/2019/06/04/kerberos-authentication/)
 [libamps_multi_authentication](http://devnull.crankuptheamps.com/documentation/html/5.3.0.0/user-guide/html/chapters/auxiliary_modules.html#authentication-with-the-amps-multimechanism-authentication-module) AMPS Server Module
 
